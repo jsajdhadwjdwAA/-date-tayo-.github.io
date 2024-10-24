@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Invitation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .title {
+            color: #ff4081;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .date-picker {
+            margin: 20px 0;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e91e63;
+        }
+    </style>
+    <script>
+        function handleResponse(accepted) {
+            const dateInput = document.getElementById('date').value;
+            if (accepted) {
+                const email = "leysasyril@gmail.com"; // Change to your email
+                const subject = "Date Invitation Accepted!";
+                const body = `I would love to go on a date with you on ${dateInput}! Looking forward to it.`;
+                window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            } else {
+                alert('No worries! Let’s just hang out sometime. 😊');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🌟 Let's Go on a Date! 🌟</h1>
+        <p class="message">
+            Hey there! I’ve been thinking about how much fun we have together, and I would love to take you out on a date! 
+            How about we grab dinner or see a movie this weekend? 
+            Let me know what you think!
+        </p>
+
+        <!-- Date Picker -->
+        <input type="date" class="date-picker" id="date" name="date" aria-label="Select a date">
+
+        <div class="button-container">
+            <a href="javascript:void(0);" class="button" onclick="handleResponse(true)">💌 Say Yes!</a>
+            <a href="javascript:void(0);" class="button" onclick="handleResponse(false)">🙅‍♂️ Maybe Another Time</a>
+        </div>
+    </div>
+</body>
+</html>
